@@ -1,6 +1,4 @@
-query hello{
-}[D
-[A
+
 query hello{
 	greet
 }
