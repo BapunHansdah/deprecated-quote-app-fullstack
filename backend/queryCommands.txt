@@ -1,5 +1,5 @@
 ---------------
-all user
+all users
 ---------------
 
 query getUser{
@@ -47,6 +47,7 @@ query getUser($userId:ID!){
 }
 
 //variable
+
 {
   "userId":"2"
 }
