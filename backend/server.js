@@ -1,6 +1,5 @@
 import { ApolloServer,gql } from 'apollo-server';
 import {ApolloServerPluginLandingPageGraphQLPlayground} from 'apollo-server-core'
-import {users,quotes} from './db.js'
 import {typeDefs} from './Typedefs/typeDefs.js'
 import {resolvers} from './Resolver/resolver.js'
 

@@ -1,3 +1,5 @@
+import {users,quotes} from '../db.js'
+
 export const resolvers = {
 	Query:{
 		users:()=>users,
