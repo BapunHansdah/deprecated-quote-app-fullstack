@@ -19,13 +19,22 @@ export const typeDefs = gql`
       	by:ID
       	quote:String
       }
+      type Token{
+            token:String
+      }
       type Mutation{
       	signUpUser(userNew:userInputs!):User
+            signInUser(userSign:userSignInputs):Token
+            createQuote(quote:String):String
       }
       input userInputs{
-      	firstName:String
-      	lastName:String
-      	email:String
-      	password:String
+      	firstName:String!
+      	lastName:String!
+      	email:String!
+      	password:String!
+      }
+      input userSignInputs{
+            email:String!
+            password:String!
       }
 `

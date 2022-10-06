@@ -5,10 +5,10 @@ import {resolvers} from './Resolver/resolver.js'
 
 import {randomBytes} from 'crypto'
 import dotenv from 'dotenv'
+import jwt from 'jsonwebtoken'
 
 import {connectDB} from './config/db.js'
-import './models/userSchema.js'
-import './models/quoteSchema.js'
+
 
 
 dotenv.config()
@@ -18,6 +18,13 @@ connectDB()
 const server = new ApolloServer({
 	typeDefs,
 	resolvers,
+	context:({req})=>{
+          const {authorization} = req.headers
+          if(authorization){
+          	const {userId} = jwt.verify(authorization,process.env.JWT_SECRET)
+          	return {userId}
+          }
+	},
 	plugins:[
 		ApolloServerPluginLandingPageGraphQLPlayground()
 	]
