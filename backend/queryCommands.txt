@@ -52,3 +52,53 @@ query getUser($userId:ID!){
 {
   "userId":"2"
 }
+
+--------------
+sign up
+--------------
+mutation signUp($usernew:signUpInputs!){
+	user:(userNew:$usernew){
+      firstName
+      lastName
+      email
+      password
+	}
+}
+query variable
+{
+	$usernew:{
+	    "firstName":"bapun",
+	    "lastName":"hansdah",
+	    "email":"barunhansdah4@gmail.com",
+	    "password":"barun123"
+	}
+}
+
+----------------
+sign in
+----------------
+mutation signIn($usersign:signInInputs!){
+	user:(userSign:$usersign){
+      token
+	}
+}
+
+query variable
+{
+	$usersign:{
+	   "email":"barunhansdah4@gmail.com",
+	   "password":"barun123"
+	}
+}
+
+---------------
+create Quote
+---------------
+mutation createQuotes{
+	quote:createQuote(quote:"i l s")
+}
+
+header variable 
+{
+	"authorization":"token"
+}
