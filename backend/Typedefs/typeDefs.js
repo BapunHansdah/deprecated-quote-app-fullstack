@@ -6,6 +6,8 @@ export const typeDefs = gql`
       	user(_id:ID!):User
       	quotes:[Quotes]
       	s_quote(by:ID!):[Quotes]
+            links:[Links]
+            s_link(by:ID!):[Links]
       }
       type User{
       	_id:ID!
@@ -14,10 +16,15 @@ export const typeDefs = gql`
       	email:String
       	password:String
       	quotes:[Quotes]
+            links:[Links]
       }
       type Quotes{
       	by:ID
       	quote:String
+      }
+      type Links{
+            by:ID
+            link:String
       }
       type Token{
             token:String
@@ -26,6 +33,7 @@ export const typeDefs = gql`
       	signUpUser(userNew:userInputs!):User
             signInUser(userSign:userSignInputs):Token
             createQuote(quote:String):String
+            createLink(link:String):String
       }
       input userInputs{
       	firstName:String!
