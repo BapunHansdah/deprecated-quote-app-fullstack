@@ -17,14 +17,14 @@ export default function Profile(){
 				  	     </div>
 			  	    </div>
   	    	    <div className="grid border-2 justify-items-center gap-2 xl:grid-cols-5 lg:grid-cols-3 md:grid-cols-1">
-			  	        <div className="h-32 lg:w-64 lg:w-64 md:w-9/12  border-2 text-white">Quote 1</div>
-			  	        <div className="h-32 lg:w-64 lg:w-64 md:w-9/12  border-2 text-white">Quote 1</div>
-			  	        <div className="h-32 lg:w-64 lg:w-64 md:w-9/12  border-2 text-white">Quote 1</div>
-			  	        <div className="h-32 lg:w-64 lg:w-64 md:w-9/12  border-2 text-white">Quote 1</div>
-		              <div className="h-32 lg:w-64 lg:w-64 md:w-9/12  border-2 text-white">Quote 1</div>
-			  	        <div className="h-32 lg:w-64 lg:w-64 md:w-9/12  border-2 text-white">Quote 1</div>
-			  	        <div className="h-32 lg:w-64 lg:w-64 md:w-9/12  border-2 text-white">Quote 1</div>
-			  	        <div className="h-32 lg:w-64 lg:w-64 md:w-9/12  border-2 text-white">Quote 1</div>
+			  	        <div className="h-32 lg:w-12/12 lg:p-10 md:p-0 md:w-9/12  border-2 text-white">Quote 1</div>
+			  	        <div className="h-32 lg:w-12/12 lg:p-10 md:p-0 md:w-9/12  border-2 text-white">Quote 1</div>
+			  	        <div className="h-32 lg:w-12/12 lg:p-10 md:p-0 md:w-9/12  border-2 text-white">Quote 1</div>
+			  	        <div className="h-32 lg:w-12/12 lg:p-10 md:p-0 md:w-9/12  border-2 text-white">Quote 1</div>
+		              <div className="h-32 lg:w-12/12 lg:p-10 md:p-0 md:w-9/12  border-2 text-white">Quote 1</div>
+			  	        <div className="h-32 lg:w-12/12 lg:p-10 md:p-0 md:w-9/12  border-2 text-white">Quote 1</div>
+			  	        <div className="h-32 lg:w-12/12 lg:p-10 md:p-0 md:w-9/12  border-2 text-white">Quote 1</div>
+			  	        <div className="h-32 lg:w-12/12 lg:p-10 md:p-0 md:w-9/12  border-2 text-white">Quote 1</div>
   	  	     </div>
   	  </div>
   	)
