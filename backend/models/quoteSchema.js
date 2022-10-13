@@ -3,7 +3,8 @@ import mongoose from 'mongoose'
 const quoteSchema = new mongoose.Schema({
 	  by:{
 	  	type:String,
-	  	required:true
+	  	required:true,
+	  	ref:"Users"
 	  },
 	  quote:{
 	  	type:String,

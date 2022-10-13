@@ -12,14 +12,13 @@ import {connectDB} from './config/db.js'
 
 dotenv.config()
 connectDB()
-
+const PORT = process.env.PORT || 4000
 function authorize({req}){
     
     const {authorization} = req.headers
 
     if(authorization){
     	const {userId} = jwt.verify(authorization,process.env.JWT_SECRET)
-    	console.log(userId)
     	return {userId}
     }
  }
@@ -34,6 +33,4 @@ const server = new ApolloServer({
 	]
 })
 
-server.listen().then(({url})=>{
-	console.log(url)
-})
+server.listen(PORT,console.log(`app running at Port ${PORT}`))

@@ -4,11 +4,23 @@ export const typeDefs = gql`
       type Query{
       	users:[User]
       	user(_id:ID!):User
-      	quotes:[Quotes]
+      	quotes:[QuoteWithName]
       	s_quote(by:ID!):[Quotes]
             links:[Links]
             s_link(by:ID!):[Links]
+            profile:User
       }
+
+      type QuoteWithName{
+            by:IdName
+            quote:String
+      }
+
+       type IdName{
+            _id:String
+            firstName:String
+      }
+
       type User{
       	_id:ID!
       	firstName:String
@@ -18,10 +30,13 @@ export const typeDefs = gql`
       	quotes:[Quotes]
             links:[Links]
       }
+
       type Quotes{
-      	by:ID
+      	by:ID!
       	quote:String
       }
+
+     
       type Links{
             by:ID
             link:String

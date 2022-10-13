@@ -1,20 +1,19 @@
+import {useParams} from 'react-router-dom'
+import {GET_OTHER_USER_DATA} from '../gqloperations/query'
 import {useQuery} from '@apollo/client'
-import {useEffect} from 'react'
-import {GET_USER_DATA} from '../gqloperations/query'
-
-export default function Profile(){
-  const {loading , data , error} = useQuery(GET_USER_DATA) 
-
-  if(loading){
-  	return (
-  		  <>
-  		     loading
-  		  </>
-  		)
-  }
-  const {firstName,lastName,email,quotes} = data.profile
-
-  return(
+export default function OtherUser(){
+	const {id} = useParams()
+	const {data , loading ,error} = useQuery(GET_OTHER_USER_DATA,{
+		variables:{
+			userid:id
+		}
+	})
+	// console.log(data)
+	if(loading){
+		return <>loading</>
+	}
+    const {firstName,lastName,email,quotes} = data.user
+   return(
   	  <div className="grid gap-2">
 			  	    <div className="flex flex-col gap-2 p-10 border-2 justify-center items-center">
 			  	       <div className="w-32 h-32">
@@ -35,7 +34,7 @@ export default function Profile(){
 				  	        {
 				  	        	quotes.map((q,i)=>{
 				  	        		return(
-				  	                <div key={i} className="flex flex-wrap break-all whitespace-pre-wrap h-32 lg:w-12/12  lg:p-2 md:p-0 md:w-9/12 bg-black  border-2 text-white">{q.quote}</div>
+				  	                        <div key={i} className="flex flex-wrap break-all whitespace-pre-wrap h-32 lg:w-12/12  lg:p-2 md:p-0 md:w-9/12 bg-black  border-2 text-white">{q.quote}</div>
 				  	        			)
 				  	        	})
 				  	        }

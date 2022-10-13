@@ -56,14 +56,15 @@ query getUser($userId:ID!){
 --------------
 sign up
 --------------
-mutation signUp($usernew:signUpInputs!){
-	user:(userNew:$usernew){
-      firstName
-      lastName
-      email
-      password
-	}
+mutation signUp($usernew : userInputs!){
+  user:signUpUser(userNew:$usernew){
+    _id
+    firstName
+    lastName
+    password
+  }
 }
+
 query variable
 {
 	$usernew:{

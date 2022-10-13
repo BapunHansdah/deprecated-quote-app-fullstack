@@ -1,12 +1,21 @@
 import {useState} from 'react'
 import {Link} from 'react-router-dom'
+import {useMutation} from '@apollo/client'
+import {SIGN_UP} from '../gqloperations/mutation'
 export default function Register(){
 
 	const [userInfo,setUserInfo] = useState({})
+   // const [signUpUser , {data,loading,error}] = useMutation(SIGN_UP)
+    // console.log(error)
+   const [signUpUser] = useMutation(SIGN_UP,{
+   	   variables:{
+   	   	 usernew:userInfo
+   	   }
+   })
 
 	function Register(e){
 		e.preventDefault()
-		console.log(userInfo)
+		signUpUser()
 	}
 
 	function handleChange(e){
@@ -25,8 +34,8 @@ export default function Register(){
 		     <input className="p-2" type="text" name="lastName" onChange={handleChange} placeholder="lastname" required/>
 		     <input className="p-2" type="email" name="email" onChange={handleChange} placeholder="email" required/>
 		     <input className="p-2" type="password" name="password" onChange={handleChange} placeholder="password" required/>
-		     <input className="p-2 border bg-black text-white" type="submit"/>
-		     <div className="">Already a member ? Please <span className="text-blue-800"><Link to="/">Sign In</Link></span></div>
+		     <input className="p-2 border bg-black text-white" type="submit" value="SIGN UP"/>
+		     <div className="">Already a member ? Please <span className="text-blue-800"><Link to="/login">Sign In</Link></span></div>
 		  </form>
 		  </div>
 		</div>

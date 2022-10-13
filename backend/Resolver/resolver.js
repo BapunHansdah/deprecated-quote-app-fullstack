@@ -14,7 +14,6 @@ const Link = mongoose.model("Links")
 import dotenv from 'dotenv'
 dotenv.config()
 
-
 //query
 async function getUsers(){
    return await User.find({})
@@ -23,7 +22,7 @@ async function getSingleUserByID(_,{_id}){
    return await User.findOne({_id})
 }
 async function getQuotes(){
-   return await Quote.find({}).populate("by","_id firstName")
+   return await Quote.find({}).populate("by")
 }
 async function getQuoteByID(_,{by}){
    return await Quote.find({by})
@@ -32,7 +31,7 @@ async function getListOfQuotes(ur){
 	return await Quote.find({by:ur._id})
 }
 async function getLinks(){
-    return await Links.find({}).populate("by","_id firstName")
+    return await Links.find({})
 }
 async function getLinkByID(){
    return await Quote.find({by})
@@ -70,7 +69,6 @@ async function signIn(_,{userSign}){
 }
 
 async function createQuotes(_,{quote},{userId}){
-	console.log(userId)
 	if(!userId){
 	   throw new Error("You must be login in")
 	}
@@ -94,6 +92,12 @@ async function createLinks(_,{link},{userId}){
 	return "Link saved succesfully"
 }
 
+async function getProfile(_,arg,{userId}){
+   if(!userId){
+   	throw new Error("user must be login !")
+   }
+   return await User.findOne({_id:userId})
+}
 
 
 export const resolvers = {
@@ -103,7 +107,8 @@ export const resolvers = {
 		quotes:getQuotes,
 		s_quote:getQuoteByID,
 		links:getLinks,
-		s_link:getLinkByID
+		s_link:getLinkByID,
+		profile:getProfile
 	},
 
 	User:{
