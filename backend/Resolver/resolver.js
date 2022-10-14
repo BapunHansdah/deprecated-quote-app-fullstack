@@ -11,9 +11,11 @@ const User = mongoose.model("Users")
 const Quote = mongoose.model("Quotes")
 const Link = mongoose.model("Links")
 
-import dotenv from 'dotenv'
-dotenv.config()
 
+import dotenv from 'dotenv'
+if(process.env.NODE_ENV !== "production"){
+  dotenv.config()	
+}
 //query
 async function getUsers(){
    return await User.find({})

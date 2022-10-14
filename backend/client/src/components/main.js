@@ -20,6 +20,7 @@ function Main(){
 
 
 
+
   if(QueryQoutes.loading || QueryUser.loading){
      return (
         <>
@@ -27,6 +28,7 @@ function Main(){
         </>
       )
   }
+
   return (
 
     <> 

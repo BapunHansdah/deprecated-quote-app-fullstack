@@ -9,7 +9,7 @@ import { setContext } from '@apollo/client/link/context';
 const rootElement = document.getElementById("root");
 
 const httpLink = createHttpLink({
-  uri: 'http://localhost:4000',
+  uri: '/graphql',
 });
 
 const authLink = setContext((_, { headers }) => {
